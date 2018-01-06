@@ -7,12 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     //
-
-        //Returning name without any relationships
-        public function getName()
+       /* public function getuser()
         {
-            return User::where('id', $this->user_id)->first()->first_name;
-        }
+           // return User::where('id', $this->user_id)->first()->first_name;
+           //Returning name without any relationships
+           //Returns only first name
+
+           //With eloquent relationships
+           return $this->belongsTo('App\User');
+        }*/
+
+        public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
 }
 
